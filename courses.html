@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning </title>
+    <link rel="icon" href="icon.png" >
+    <link rel="stylesheet " href="style.css">
+</head>
+<body>
+    <nav align="left">
+<h2> Online Learning </h2>
+<a href="index.html"> Home</a>|
+<a href="about.html">About</a>|
+<a href="courses.html"> Courses</a>|
+    <a href="course-details.html"> Courses Details</a>|
+
+<a href="certification.html"> Certificate's</a>|
+<a href="addmission.html"> Addmission</a>|
+<a href="contact.html">Contact us</a>
+</nav>
+    <!-- Courses Section -->
+    <section class="courses-section">
+
+        <h1>Our Courses</h1>
+
+        <p>
+            Explore our courses and learn new skills
+            from anywhere, anytime.
+        </p>
+
+        <!-- Search and Filter -->
+        <div class="course-controls">
+
+            <input 
+                type="text" 
+                id="searchCourse"
+                placeholder="Search courses..."
+            >
+
+            <select id="categoryFilter">
+                <option value="all">All Courses</option>
+                <option value="programming">Programming</option>
+                <option value="web">Web Development</option>
+                <option value="design">Design</option>
+                <option value="marketing">Marketing</option>
+            </select>
+
+        </div>
+
+
+        <!-- Courses -->
+        <div class="courses-container">
+
+            <!-- HTML & CSS -->
+            <div class="course-card" data-category="programming">
+                <img src="HTML.CSS.png " alt="HTML and CSS" height="300px">
+
+                <div class="course-info">
+
+                    <h2>HTML & CSS</h2>
+
+                    <p>
+                        Learn the fundamentals of web design,
+                        HTML structure and CSS styling.
+                    </p>
+
+                    <p><strong>Level:</strong> Beginner</p>
+                    <p><strong>Duration:</strong> 4 Weeks</p>
+    <button onclick="window.location.href='course-details.html'">View Course</button>
+
+                
+
+                </div>
+            </div>
+
+
+            <!-- JavaScript -->
+            <div class="course-card" data-category="programming">
+
+                <img src="JS.png" alt="JavaScript" height="300px">
+
+                <div class="course-info">
+
+                    <h2>JavaScript</h2>
+
+                    <p>
+                        Learn JavaScript fundamentals and
+                        create interactive websites.
+                    </p>
+
+                    <p><strong>Level:</strong> Intermediate</p>
+                    <p><strong>Duration:</strong> 6 Weeks</p>
+
+    <button onclick="window.location.href='course-details.html'">View Course</button>
+    
+
+                </div>
+            </div>
+
+
+            <!-- Python -->
+            <div class="course-card" data-category="programming">
+
+                <img src="python.png" alt="Python" height="300px">
+
+                <div class="course-info">
+
+                    <h2>Python Programming</h2>
+
+                    <p>
+                        Learn Python basics, functions,
+                        loops and programming concepts.
+                    </p>
+
+                    <p><strong>Level:</strong> Beginner</p>
+                    <p><strong>Duration:</strong> 8 Weeks</p>
+
+    <button onclick="window.location.href='course-details.html'">View Course</button>
+
+                    
+
+                </div>
+            </div>
+
+
+            <!-- Web Development -->
+            <div class="course-card" data-category="web">
+
+                <img src="WD.png" alt="Web Development" height="300px">
+
+                <div class="course-info">
+
+                    <h2>Web Development</h2>
+
+                    <p>
+                        Learn how to build complete,
+                        responsive and modern websites.
+                    </p>
+
+                    <p><strong>Level:</strong> Intermediate</p>
+                    <p><strong>Duration:</strong> 10 Weeks</p>
+
+    <button onclick="window.location.href='course-details.html'">View Course</button>
+    
+                    
+
+                </div>
+            </div>
+
+
+            <!-- Graphic Designing -->
+            <div class="course-card" data-category="design">
+
+                <img src="GD.png" alt="Graphic Designing" height="300px">
+
+                <div class="course-info">
+
+                    <h2>Graphic Designing</h2>
+
+                    <p>
+                        Learn design principles, typography,
+                        graphics and creative digital design.
+                    </p>
+
+                    <p><strong>Level:</strong> Beginner</p>
+                    <p><strong>Duration:</strong> 6 Weeks</p>
+
+    <button onclick="window.location.href='course-details.html'">View Course</button>
+                    
+
+                </div>
+            </div>
+
+
+            <!-- Digital Marketing -->
+            <div class="course-card" data-category="marketing">
+
+                <img src="DM.png" alt="Digital Marketing" height="300px">
+
+                <div class="course-info">
+
+                    <h2>Digital Marketing</h2>
+
+                    <p>
+                        Learn SEO, social media marketing,
+                        content marketing and promotion.
+                    </p>
+
+                    <p><strong>Level:</strong> Beginner</p>
+                    <p><strong>Duration:</strong> 5 Weeks</p>
+
+    <button onclick="window.location.href='course-details.html'">View Course</button>
+        
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <p> &copy; copyrights. All Rights Reserved.</p>
+    </footer>
+<script>
+    document.getElementById("searchCourse").addEventListener("input", function () {
+
+        let searchText = this.value.toLowerCase();
+        let courses = document.querySelectorAll(".course-card");
+
+        courses.forEach(function (course) {
+
+            let courseName = course.querySelector("h2").textContent.toLowerCase();
+
+            if (courseName.includes(searchText)) {
+                course.style.display = "block";
+            } else {
+                course.style.display = "none";
+            }
+
+        });
+
+    });
+
+
+    // CATEGORY FILTER
+    document.getElementById("categoryFilter").addEventListener("change", function () {
+
+        let selectedCategory = this.value;
+        let courses = document.querySelectorAll(".course-card");
+
+        courses.forEach(function (course) {
+
+            let courseCategory = course.getAttribute("data-category");
+
+            if (selectedCategory === "all" || courseCategory === selectedCategory) {
+                course.style.display = "block";
+            } else {
+                course.style.display = "none";
+            }
+
+        });
+
+    });
+
+
+    // VIEW COURSE
+    function viewCourse(courseName) {
+
+        let message = "";
+
+        if (courseName === "HTML & CSS") {
+            message = "Learn HTML structure and CSS styling. Level: Beginner. Duration: 4 Weeks.";
+
+        } 
+        else if (courseName === "JavaScript") {
+            message = "Learn JavaScript fundamentals and create interactive websites. Level: Intermediate. Duration: 6 Weeks.";
+
+        } 
+        else if (courseName === "Python Programming") {
+            message = "Learn Python basics, functions, loops and programming concepts. Level: Beginner. Duration: 8 Weeks.";
+
+        } 
+        else if (courseName === "Web Development") {
+            message = "Learn how to build complete, responsive and modern websites. Level: Intermediate. Duration: 10 Weeks.";
+
+        } 
+        else if (courseName === "Graphic Designing") {
+            message = "Learn design principles, typography, graphics and creative digital design. Level: Beginner. Duration: 6 Weeks.";
+
+        } 
+        else if (courseName === "Digital Marketing") {
+            message = "Learn SEO, social media marketing, content marketing and promotion. Level: Beginner. Duration: 5 Weeks.";
+        }
+
+        alert(courseName + "\n\n" + message);
+    }
+
+</script>
+</body>
+</html>
